@@ -17,6 +17,6 @@ Ruby on Rails (6674 issues - GitHub issue tracker): https://github.com/rails/rai
 5. Done by Feb 23rd - Draw conclusions.
 
 ##Python Script Usage:
-bugCounter.py -u <githubUsername> -p <githubPassword> -a <startYear> -b <startMonth> -c <endYear> -d <endMonth> -o <owner> -r <repository> -q <query>
+bugCounter.py -u (githubUsername) -p (githubPassword) -a (startYear) -b (startMonth) -c (endYear) -d (endMonth) -o (owner) -r (repository) -q (query)
 
 ** Username and password are used to improve the GitHub API's rate limit from 5 requests per minute to 20 requests per minute. USE AT YOUR OWN RISK!
