@@ -7,6 +7,10 @@ import getopt
 usage = 'bugCounter.py -u <githubUsername> -p <githubPassword> -a <startYear> -b <startMonth> -c <endYear> -d <endMonth> -o <owner> -r <repository> -q <query> -l<label>'
 query = ''
 label = ''
+csvCount = ''
+csvDates = ''
+dateCounter = 1
+
 try:
 	opts, args = getopt.getopt(sys.argv[1:],"hu:p:a:b:c:d:o:r:q:l:")
 except getopt.GetoptError:
@@ -73,6 +77,9 @@ while currentYear <= endYear:
 	m = p.search(res.read())
 	total += int(m.group(1))
 	print dateRange + ' = ' + m.group(1)
+	csvCount += str(m.group(1)) + ','
+	csvDates += str(dateCounter) + ','
+	dateCounter += 1
 	if currentMonth == 12:
 		currentMonth = 1
 		currentYear += 1
@@ -87,6 +94,17 @@ while currentYear <= endYear:
 
 	time.sleep(3)
 print "Total = " + str(total)
+
+if csvCount[-1:] == ",":
+    csvCount = csvCount[:-1]
+
+if csvDates[-1:] == ",":
+	csvDates = csvDates[:-1]
+		
+print "CSV dates = " + str(csvDates)
+print "CSV count = " + str(csvCount)
+print str(startYear) + '-' + str(startMonth).zfill(2) + '-01'
+print str(endYear) + '-' + str(endMonth).zfill(2) + '-01'
 
 
 
