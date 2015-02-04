@@ -4,14 +4,17 @@ import time
 import sys
 import getopt
 
+usage = 'bugCounter.py -u <githubUsername> -p <githubPassword> -a <startYear> -b <startMonth> -c <endYear> -d <endMonth> -o <owner> -r <repository> -q <query> -l<label>'
+query = ''
+label = ''
 try:
-	opts, args = getopt.getopt(sys.argv[1:],"hu:p:a:b:c:d:o:r:q:")
+	opts, args = getopt.getopt(sys.argv[1:],"hu:p:a:b:c:d:o:r:q:l:")
 except getopt.GetoptError:
-	print 'bugCounter.py -u <githubUsername> -p <githubPassword> -a <startYear> -b <startMonth> -c <endYear> -d <endMonth> -o <owner> -r <repository> -q <query>'
+	print usage
 	sys.exit(2)
 for opt, arg in opts:
 	if opt == '-h':
-		print 'bugCounter.py -u <githubUsername> -p <githubPassword> -a <startYear> -b <startMonth> -c <endYear> -d <endMonth> -o <owner> -r <repository> -q <query>'
+		print usage
 		sys.exit()
 	elif opt in ("-u"):
 		username = arg
@@ -31,11 +34,13 @@ for opt, arg in opts:
 		repo = arg
 	elif opt in ("-q"):
 		query = arg
-
+	elif opt in ("-l"):
+		label = arg
 userData = "Basic " + (username + ':' + password).encode("base64").rstrip()
 
 total = 0
 print 'Search query = ' + query
+print 'Search label = ' + label
 
 currentYear = startYear
 currentMonth = startMonth
@@ -53,7 +58,12 @@ while currentYear <= endYear:
 			break
 
 	dateRange = str(currentYear) + '-' + str(currentMonth).zfill(2) + '-01..' + str(nextYear) + '-' + str(nextMonth).zfill(2) + '-01'
-	req = urllib2.Request('https://api.github.com/search/issues?q=' + query + '+repo:' + str(owner) + '/' + str(repo) + '+created:' + dateRange)
+	url = 'https://api.github.com/search/issues?q=' + query + 'repo:' + str(owner) + '/' + str(repo) + '+created:' + dateRange
+
+	if label != '':
+		url += '+label:' + label
+		
+	req = urllib2.Request(url)
 	req.add_header("Content-type", "application/x-www-form-urlencoded")
 	req.add_header('Authorization', userData)
 	res = urllib2.urlopen(req)
