@@ -62,7 +62,7 @@ while currentYear <= endYear:
 			break
 
 	dateRange = str(currentYear) + '-' + str(currentMonth).zfill(2) + '-01..' + str(nextYear) + '-' + str(nextMonth).zfill(2) + '-01'
-	url = 'https://api.github.com/search/issues?q=' + query + 'repo:' + str(owner) + '/' + str(repo) + '+created:' + dateRange
+	url = 'https://api.github.com/search/issues?q=' + query.replace(" ", "+") + '+repo:' + str(owner) + '/' + str(repo) + '+created:' + dateRange
 
 	if label != '':
 		url += '+label:' + label
