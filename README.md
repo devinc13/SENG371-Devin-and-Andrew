@@ -25,14 +25,11 @@ bugCounter.py -u (githubUsername) -p (githubPassword) -a (startYear) -b (startMo
 * The -l and -q arguments for adding a label and a query is optional
 
 ** Username and password are used to improve the GitHub API's rate limit from 5 requests per minute to 20 requests per minute. USE AT YOUR OWN RISK!
+
 ** Label and queries currently can't contain spaces. This is a known issue.
 
 ##Results:
-
 ![Rails](Rails.png "Rails")
-
 ![Node](Node.png "Node")
-
 ![Bootstrap](Bootstrap.png "Bootstrap")
-
 ![Averages](Averages.png "Averages")
