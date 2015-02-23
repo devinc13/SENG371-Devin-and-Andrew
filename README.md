@@ -51,10 +51,15 @@ For future work, it would be good to try to reproduce the data collection with a
 ##Project Management Information
 
 Milestones: 
+
 1. Done by Feb 4th - Gather data on number of reported bugs per month for each codebase.
+
 2. Done by Feb 11th - Gather data on number of progressive and anti-regressive changes each month.
+
 3. Done by Feb 18th - Use data to create graphs or similar visual ways to represent the data.
+
 4. Done by Feb 23rd - Draw conclusions.
+
 
 Roles: Nearly everything during this project was done together (Devin Corrigall and Andrew Hansen), especially the running of the time consuming script, and conversion of the csv values to a useful graph.
 
