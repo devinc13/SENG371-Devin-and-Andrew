@@ -42,18 +42,21 @@ The data was then trimmed to match the shortest range of data (from the Bootstra
 ![Averages](Averages.png "Averages")	
 	
 ##Analysis
-	an answer to your original question based on these data sources and your methodology
-	threats to validity
-	future work
-##Project Management Information
-	milestones and timelines
-	roles of team members
+Based on our collected data, the biggest effect on the number of bugs discovered is the number of progressive changes. With regards to the effect of anti-regressive changes, there are a few places seen in the graphs where after a higher level of anti-regressive changes, there was a decrease in the number of issues opened related to bugs (mostly noticible in the data from node.js).
 
-##Milestones: 
+There are a few threats to the validity of these conclusions. The biggest thing was that the monthly searches might be too broad. There are probably many cases where lots of progressive changes were introduced one week, and many bugs may have been reported in the following week or two, but due to monthly searches, these group all those progressive changes and bugs are shown to happen at exactly the same time, making it harder to confirm the relationship between the two. Next, is the assumptions made regarding keyword searches. It is possible that we were picking up on issues that weren't actually progressive, anti-regressive or bugs with the keyword searches, or missing some. The label searches were likely more accurate, as the specific labels were placed on the issues by whoever created them, but aren't availible in all repos. Finally, the relatively small amount of data, especially in numbers of anti-regressive changes, make our conclusions less strong.
+
+For future work, it would be good to try to reproduce the data collection with an updated script that is more granular with regards to time in the searches. Possibly weekly increments, or even daily (although this would be quite time consuming, around 20 minutes per search per year searched, due to github's rate limit). It would also be interesting to find more repositories with good labels to represent progressive, anti-regressive changes and bugs, resulting in more accurate results, or even trying to find more accurate keywords to search if labels aren't availible (possibly tailord to each individual repository, based on the style of issues present).
+
+##Project Management Information
+
+Milestones: 
 1. Done by Feb 4th - Gather data on number of reported bugs per month for each codebase.
 2. Done by Feb 11th - Gather data on number of progressive and anti-regressive changes each month.
 3. Done by Feb 18th - Use data to create graphs or similar visual ways to represent the data.
 4. Done by Feb 23rd - Draw conclusions.
+
+Roles: Nearly everything during this project was done together (Devin Corrigall and Andrew Hansen), especially the running of the time consuming script, and conversion of the csv values to a useful graph.
 
 
 
