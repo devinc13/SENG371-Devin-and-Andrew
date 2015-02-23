@@ -14,18 +14,20 @@ bugCounter.py -u (githubUsername) -p (githubPassword) -a (startYear) -b (startMo
 
 ** Username and password are used to improve the GitHub API's rate limit from 5 requests per minute to 20 requests per minute. USE AT YOUR OWN RISK!
 
-** If searching with multiple words in the query, make sure to surrond them in quotes to pick the whole string up (eg. -q 'refactor OR rewrite')
+** If searching with multiple words in the query, make sure to surrond them in quotes to pick up the whole string (eg. -q 'refactor OR rewrite')
 
 ##Codebases/Systems: 
-Ruby on Rails (6674 issues - GitHub issue tracker): https://github.com/rails/rails, node.js (5608 issues - GitHub issue tracker): https://github.com/joyent/node and Bootstrap (10,820 issues - GitHub issue tracker): https://github.com/twbs/bootstrap
+Ruby on Rails (6674 issues - GitHub issue tracker): https://github.com/rails/rails
+node.js (5608 issues - GitHub issue tracker): https://github.com/joyent/node 
+Bootstrap (10,820 issues - GitHub issue tracker): https://github.com/twbs/bootstrap
 
 ##Metrics
 The metrics we used are the number of issues with reference progressive, anti-regressive changes, and those with reference to bugs. This was done slightly differently in different repositories, as shown below:
-#Rails - searched between April 2011 to Feb 2015
+###Rails - searched between April 2011 to Feb 2015
 Since rails didn't have useful labels on their issues, we used keyword searches. For anti-regressive changes, we searched for "rewrite", for progressive changes we searched for "feature", and for bugs we searched for "bug". 			
-#Node - searched between June 2009 to Feb 2015
+###Node - searched between June 2009 to Feb 2015
 Since node also didn't have useful labels on their issues, we used keyword searches. For anti-regressive changes, we searched for "rewrite", for progressive changes we searched for "feature", and for bugs we searched for "bug". 
-#Bootstrap - searched between August 2011 to Feb 2015
+###Bootstrap - searched between August 2011 to Feb 2015
 Bootstrap has a few labels that match up well with our metrics, so we used the label "feature" for progressice changes, the label "confirmed" for bugs (this represented a confirmed bug), and since there weren't any labels for anti-regressive changes, we used the keyword search of "rewrite", similar to the other repositories.		 
 
 ##Results:
