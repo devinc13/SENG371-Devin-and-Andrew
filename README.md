@@ -1,4 +1,4 @@
-# SENG371-Devin-and-Andrew
+# The Effect of Progressive and Anti-Regressive Changes on Bugs Over Time
 
 ##Our Project Question: 
 How does the number of progressive (new feature) and anti-regressive (maintenance) changes over time affect the number of bugs discovered?
